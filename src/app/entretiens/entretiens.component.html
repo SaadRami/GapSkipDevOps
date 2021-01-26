@@ -1,0 +1,30 @@
+<h2>Entretiens</h2>
+
+<div class="entretiens">
+    <div *ngFor="let entretien of entretiens">
+        <div class="entretien">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src={{entretien.image}} alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{entretien.title}}</h5>
+                  <p>{{entretien.description}}</p>
+                  <div>
+                      <a href="{{entretien.url}}" target="blank">{{entretien.url}}</a>
+                  </div>
+                  <!-- Button trigger modal -->
+                    <div *ngIf="entretien.isFavorite">
+                        <button type="button" class="btn btn-danger" (click)="dislike(entretien)">
+                            Dislike
+                        </button>
+                    </div>
+                    <div *ngIf="!entretien.isFavorite">
+                        <button type="button" class="btn btn-primary" (click)="like(entretien)">
+                            Like
+                        </button>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
